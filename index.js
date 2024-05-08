@@ -30,12 +30,12 @@ function capitalize(str) {
 function playRound(humanChoice, computerChoice, score) {
     const roundResult = determineRoundResult(humanChoice, computerChoice);
     switch(roundResult) {
-        case 'c': 
+        case 'computer': 
             console.log(`You lost, seems like robots are gonna replace us soon D:`
                 + `\n${capitalize(computerChoice)} beats ${humanChoice}.`);
             score.computerScore += 1;
             break;
-        case 'h':
+        case 'human':
             console.log(`Wow, human won this round!`
                 + `\n${capitalize(humanChoice)} beats ${computerChoice}.`);
             score.humanScore += 1;
@@ -47,23 +47,23 @@ function playRound(humanChoice, computerChoice, score) {
 }
 
 function determineRoundResult(humanChoice, computerChoice) {
-    if (humanChoice[0] === computerChoice[0]) return;
+    if (humanChoice === computerChoice) return;
 
-    switch(humanChoice[0]) {
-        case 'r':
-            switch(computerChoice[0]) {
-                case 'p': return 'c';
-                case 's': return 'h';
+    switch(humanChoice) {
+        case 'rock':
+            switch(computerChoice) {
+                case 'paper': return 'computer';
+                case 'scissors': return 'human';
             }
-        case 'p':
-            switch(computerChoice[0]) {
-                case 'r': return 'h';
-                case 's': return 'c';
+        case 'paper':
+            switch(computerChoice) {
+                case 'rock': return 'human';
+                case 'scissors': return 'computer';
             }
-        case 's':
-            switch(computerChoice[0]) {
-                case 'r': return 'c';
-                case 'p': return 'h';
+        case 'scissors':
+            switch(computerChoice) {
+                case 'rock': return 'computer';
+                case 'paper': return 'human';
             }
     }
 }
