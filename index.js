@@ -18,6 +18,14 @@ function validateUserInput(shape) {
     return false;
 }
 
+function getComputerChoice() {
+    const shapes = ["rock", "paper", "scissors"];
+    return shapes[Math.floor(Math.random() * 3)];
+}
 
-userShape = getHumanChoice();
-console.log(userShape);
+
+// userShape = getHumanChoice();
+// console.log(userShape);
+
+computerShape = getComputerChoice();
+console.log(computerShape);
