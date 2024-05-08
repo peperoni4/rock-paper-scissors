@@ -27,18 +27,18 @@ function capitalize(str) {
     return str[0].toUpperCase() + str.slice(1);
 }
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice, score) {
     const roundResult = determineRoundResult(humanChoice, computerChoice);
     switch(roundResult) {
         case 'c': 
             console.log(`You lost, seems like robots are gonna replace us soon D:`
                 + `\n${capitalize(computerChoice)} beats ${humanChoice}.`);
-            computerScore += 1;
+            score.computerScore += 1;
             break;
         case 'h':
             console.log(`Wow, human won this round!`
                 + `\n${capitalize(humanChoice)} beats ${computerChoice}.`);
-            humanScore += 1;
+            score.humanScore += 1;
             break;
         default:
             console.log("That's a tie!\nLet's play one more time!");
@@ -70,14 +70,16 @@ function determineRoundResult(humanChoice, computerChoice) {
 
 function playGame() {
     const pointsToWin = 3;
-    let humanScore = 0
-    let computerScore = 0;
+    const gameScore = { humanScore: 0, computerScore: 0};
 
-    while (humanScore < pointsToWin && computerScore < pointsToWin) {
+    while (gameScore.humanScore < pointsToWin && gameScore.computerScore < pointsToWin) {
         humanChoice = getHumanChoice();
         computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
+        playRound(humanChoice, computerChoice, gameScore);
+        console.log(`Human: ${gameScore.humanScore} - `
+            + `Computer: ${gameScore.computerScore}`);
     }
+    console.log("Game is finished!");
 }
 
 playGame();
