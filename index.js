@@ -1,17 +1,17 @@
 function getHumanChoice() {
     let userShape = null;
     while (!validateUserInput(userShape)) {
-        userShape = prompt("Please, enter your shape R - rock, P - paper or S - scissors");
+        userShape = prompt("Please, enter your shape - rock, paper or scissors:");
     }
     return userShape.toLocaleLowerCase();
 }
 
 function validateUserInput(shape) {
     if (!shape || shape.length === 0) return false;
-    switch(shape[0].toLocaleLowerCase()) {
-        case 'r':
-        case 'p':
-        case 's':
+    switch(shape.toLocaleLowerCase()) {
+        case 'rock':
+        case 'paper':
+        case 'scissors':
             return true;
     }
 
@@ -23,15 +23,21 @@ function getComputerChoice() {
     return shapes[Math.floor(Math.random() * 3)];
 }
 
+function capitalize(str) {
+    return str[0].toUpperCase() + str.slice(1);
+}
+
 function playRound(humanChoice, computerChoice) {
     const roundResult = determineRoundResult(humanChoice, computerChoice);
     switch(roundResult) {
         case 'c': 
-            console.log("You lost, seems like robots are gonna replace us soon D:");
+            console.log(`You lost, seems like robots are gonna replace us soon D:`
+                + `\n${capitalize(computerChoice)} beats ${humanChoice}.`);
             computerScore += 1;
             break;
         case 'h':
-            console.log("Wow, human won this round!");
+            console.log(`Wow, human won this round!`
+                + `\n${capitalize(humanChoice)} beats ${computerChoice}.`);
             humanScore += 1;
             break;
         default:
@@ -62,13 +68,16 @@ function determineRoundResult(humanChoice, computerChoice) {
     }
 }
 
+function playGame() {
+    let humanScore = 0
+    let computerScore = 0;
 
-humanChoice = getHumanChoice();
-console.log(humanChoice);
+    while (humanScore < 3 && computerScore < 3) {
+        humanChoice = getHumanChoice();
+        computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+    }
+}
 
-computerChoice = getComputerChoice();
-console.log(computerChoice);
 
-let humanScore = 0
-let computerScore = 0;
-playRound(humanChoice, computerChoice);
+playGame();
