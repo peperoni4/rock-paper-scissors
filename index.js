@@ -69,15 +69,15 @@ function determineRoundResult(humanChoice, computerChoice) {
 }
 
 function playGame() {
+    const pointsToWin = 3;
     let humanScore = 0
     let computerScore = 0;
 
-    while (humanScore < 3 && computerScore < 3) {
+    while (humanScore < pointsToWin && computerScore < pointsToWin) {
         humanChoice = getHumanChoice();
         computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
     }
 }
-
 
 playGame();
