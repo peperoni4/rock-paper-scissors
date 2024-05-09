@@ -43,3 +43,10 @@ IF playerScore == 3 THEN
 ELSE
     PRINT Inform the player that he lost
 ```
+
+### Skills practiced:
+
+1. I applied the problem-solving framework to this project and from my experience with it I can say that it is much easier to solve problems using this framework than with the default trial and error method.
+   Understanding the problem and writing the algorithm with the pseudocode gives you a lot of room for thinking about the problem and analyzing potential pitfalls in my implementation, before actually writing any line of code, which saves a lot of time.
+   Also, it's worth noting the divide and conquer method, where I divided the big problem into small subproblems and solved them first, wired them together, and, as a result, got my big problem solved.
+2. I practiced some Javascript basics, such as variables, loops, conditionals and strings.
