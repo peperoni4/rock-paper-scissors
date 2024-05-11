@@ -1,6 +1,7 @@
 // why I don't use querySelectorAll('button')?
 // because I want to add some buttons in the future
 const shapeButtons = document.querySelector(".button-container").children;
+const roundResult = document.querySelector(".roundResult");
 const pointsToWin = 3;
 const gameScore = { humanScore: 0, computerScore: 0 };
 //   `Human: ${gameScore.humanScore} - ` +
@@ -25,24 +26,22 @@ function capitalize(str) {
 }
 
 function playRound(humanChoice, computerChoice) {
-  const roundResult = determineRoundResult(humanChoice, computerChoice);
-  switch (roundResult) {
+  const result = determineRoundResult(humanChoice, computerChoice);
+  switch (result) {
     case "computer":
-      console.log(
+      roundResult.textContent =
         `You lost, seems like robots are gonna replace us soon D:` +
-          `\n${capitalize(computerChoice)} beats ${humanChoice}.`
-      );
+        `\n${capitalize(computerChoice)} beats ${humanChoice}.`;
       gameScore.computerScore += 1;
       break;
     case "human":
-      console.log(
+      roundResult.textContent =
         `Wow, human won this round!` +
-          `\n${capitalize(humanChoice)} beats ${computerChoice}.`
-      );
+        `\n${capitalize(humanChoice)} beats ${computerChoice}.`;
       gameScore.humanScore += 1;
       break;
     default:
-      console.log("That's a tie!\nLet's play one more time!");
+      roundResult.textContent = "That's a tie!\nLet's play one more time!";
       break;
   }
 }
