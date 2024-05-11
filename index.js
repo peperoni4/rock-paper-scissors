@@ -1,9 +1,19 @@
+// why I don't use querySelectorAll('button')?
+// because I want to add some buttons in the future
+const shapeButtons = document.querySelector(".button-container").children;
 const pointsToWin = 3;
 const gameScore = { humanScore: 0, computerScore: 0 };
-// console.log(
 //   `Human: ${gameScore.humanScore} - ` +
 //     `Computer: ${gameScore.computerScore}`
-// );
+
+for (const btn of shapeButtons) {
+  btn.addEventListener("click", onShapeButtonClick);
+}
+
+function onShapeButtonClick(e) {
+  const humanChoice = e.target.getAttribute("data-shape").toLowerCase();
+  playRound(humanChoice, getComputerChoice(), gameScore);
+}
 
 function getComputerChoice() {
   const shapes = ["rock", "paper", "scissors"];
