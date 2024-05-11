@@ -1,6 +1,6 @@
 // why I don't use querySelectorAll('button')?
 // because I want to add some buttons in the future
-const shapeButtons = document.querySelector(".button-container").children;
+const shapeButtons = document.querySelector(".container").children;
 const roundResultText = document.querySelector(".roundResult");
 const gameResultText = document.querySelector(".gameResult");
 const scoreText = document.querySelector(".score");
