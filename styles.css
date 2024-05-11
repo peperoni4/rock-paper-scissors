@@ -6,6 +6,7 @@
 
 html {
   box-sizing: border-box;
+  background-color: rgba(9, 186, 250, 0.236);
 }
 
 *,
@@ -26,6 +27,8 @@ body {
   gap: 40px;
   font-family: Virgil;
   text-align: center;
+
+  margin-top: 50px;
 }
 
 .container {
@@ -34,12 +37,18 @@ body {
 }
 
 .shape-card {
+  transition: border-radius 0.5s ease;
+
   width: 150px;
   height: 150px;
-  border: 3px solid greenyellow;
+  border: 3px solid rgb(8, 236, 141);
   border-radius: 30%;
 
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.shape-card:hover {
+  border-radius: 50%;
 }

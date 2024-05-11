@@ -16,14 +16,12 @@ function onShapeButtonClick(e) {
   const humanChoice = e.target.getAttribute("data-shape").toLowerCase();
   playRound(humanChoice, getComputerChoice());
   scoreText.innerHTML =
-    `Human: ${gameScore.humanScore} <br>` +
-    `Computer: ${gameScore.computerScore}`;
+    `🦧: ${gameScore.humanScore} <br>` + `🤖: ${gameScore.computerScore}`;
   if (
     gameScore.computerScore === pointsToWin ||
     gameScore.humanScore === pointsToWin
   ) {
-    const winner =
-      gameScore.computerScore === pointsToWin ? "Computer" : "Human";
+    const winner = gameScore.computerScore === pointsToWin ? "🤖" : "🦧";
     gameResultText.textContent = `${winner} won the game!`;
   }
 }
