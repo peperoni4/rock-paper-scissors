@@ -26,6 +26,7 @@ body {
   flex-direction: column;
   gap: 40px;
   font-family: Virgil;
+  font-size: 24px;
   text-align: center;
 
   margin-top: 50px;
