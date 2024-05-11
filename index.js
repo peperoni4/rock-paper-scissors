@@ -1,7 +1,8 @@
 // why I don't use querySelectorAll('button')?
 // because I want to add some buttons in the future
 const shapeButtons = document.querySelector(".button-container").children;
-const roundResult = document.querySelector(".roundResult");
+const roundResultText = document.querySelector(".roundResult");
+const gameResultText = document.querySelector(".gameResult");
 const scoreText = document.querySelector(".score");
 
 const pointsToWin = 3;
@@ -17,6 +18,14 @@ function onShapeButtonClick(e) {
   scoreText.innerHTML =
     `Human: ${gameScore.humanScore} <br>` +
     `Computer: ${gameScore.computerScore}`;
+  if (
+    gameScore.computerScore === pointsToWin ||
+    gameScore.humanScore === pointsToWin
+  ) {
+    const winner =
+      gameScore.computerScore === pointsToWin ? "Computer" : "Human";
+    gameResultText.textContent = `${winner} won the game!`;
+  }
 }
 
 function getComputerChoice() {
@@ -29,22 +38,22 @@ function capitalize(str) {
 }
 
 function playRound(humanChoice, computerChoice) {
-  const result = determineRoundResult(humanChoice, computerChoice);
-  switch (result) {
+  const roundResult = determineRoundResult(humanChoice, computerChoice);
+  switch (roundResult) {
     case "computer":
-      roundResult.textContent =
+      roundResultText.textContent =
         `You lost, seems like robots are gonna replace us soon D:` +
         `\n${capitalize(computerChoice)} beats ${humanChoice}.`;
       gameScore.computerScore += 1;
       break;
     case "human":
-      roundResult.textContent =
+      roundResultText.textContent =
         `Wow, human won this round!` +
         `\n${capitalize(humanChoice)} beats ${computerChoice}.`;
       gameScore.humanScore += 1;
       break;
     default:
-      roundResult.textContent = "That's a tie!\nLet's play one more time!";
+      roundResultText.textContent = "That's a tie!\nLet's play one more time!";
       break;
   }
 }
