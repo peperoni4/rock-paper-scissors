@@ -6,7 +6,7 @@
 
 html {
   box-sizing: border-box;
-  background-color: rgba(9, 186, 250, 0.236);
+  background-color: rgba(9, 186, 250, 0.347);
 }
 
 *,
@@ -41,8 +41,8 @@ body {
 
   width: 150px;
   height: 150px;
-  border: 3px solid rgb(8, 236, 141);
-  border-radius: 30%;
+  border: 3px solid rgba(122, 179, 240, 0.987);
+  border-radius: 20%;
 
   display: flex;
   justify-content: center;
@@ -51,4 +51,21 @@ body {
 
 .shape-card:hover {
   border-radius: 50%;
+}
+
+.gameResult {
+  margin: 60px 0;
+}
+
+.infoText {
+  display: none;
+  color: rgb(248, 248, 236);
+}
+
+.roundResult {
+  color: rgb(0, 140, 143);
+}
+
+.score {
+  color: aliceblue;
 }
