@@ -2,10 +2,10 @@
 // because I want to add some buttons in the future
 const shapeButtons = document.querySelector(".button-container").children;
 const roundResult = document.querySelector(".roundResult");
+const scoreText = document.querySelector(".score");
+
 const pointsToWin = 3;
 const gameScore = { humanScore: 0, computerScore: 0 };
-//   `Human: ${gameScore.humanScore} - ` +
-//     `Computer: ${gameScore.computerScore}`
 
 for (const btn of shapeButtons) {
   btn.addEventListener("click", onShapeButtonClick);
@@ -14,6 +14,9 @@ for (const btn of shapeButtons) {
 function onShapeButtonClick(e) {
   const humanChoice = e.target.getAttribute("data-shape").toLowerCase();
   playRound(humanChoice, getComputerChoice());
+  scoreText.innerHTML =
+    `Human: ${gameScore.humanScore} <br>` +
+    `Computer: ${gameScore.computerScore}`;
 }
 
 function getComputerChoice() {
