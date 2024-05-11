@@ -12,7 +12,7 @@ for (const btn of shapeButtons) {
 
 function onShapeButtonClick(e) {
   const humanChoice = e.target.getAttribute("data-shape").toLowerCase();
-  playRound(humanChoice, getComputerChoice(), gameScore);
+  playRound(humanChoice, getComputerChoice());
 }
 
 function getComputerChoice() {
@@ -24,7 +24,7 @@ function capitalize(str) {
   return str[0].toUpperCase() + str.slice(1);
 }
 
-function playRound(humanChoice, computerChoice, score) {
+function playRound(humanChoice, computerChoice) {
   const roundResult = determineRoundResult(humanChoice, computerChoice);
   switch (roundResult) {
     case "computer":
@@ -32,14 +32,14 @@ function playRound(humanChoice, computerChoice, score) {
         `You lost, seems like robots are gonna replace us soon D:` +
           `\n${capitalize(computerChoice)} beats ${humanChoice}.`
       );
-      score.computerScore += 1;
+      gameScore.computerScore += 1;
       break;
     case "human":
       console.log(
         `Wow, human won this round!` +
           `\n${capitalize(humanChoice)} beats ${computerChoice}.`
       );
-      score.humanScore += 1;
+      gameScore.humanScore += 1;
       break;
     default:
       console.log("That's a tie!\nLet's play one more time!");
